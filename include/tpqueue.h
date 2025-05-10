@@ -7,7 +7,7 @@ template<typename T>
 class TPQueue {
  private:
     struct QueueNode {
-        TPQueue item;
+        T item;
         QueueNode* link;
 
         explicit QueueNode(const T& val)
@@ -17,10 +17,10 @@ class TPQueue {
     QueueNode* front;
 
  public:
-    PriorityQueue()
+    TPQueue()
         : front(nullptr) {}
 
-    ~PriorityQueue() {
+    ~TPQueue() {
         while (front != nullptr) {
             QueueNode* tmp = front;
             front = front->link;
@@ -38,8 +38,7 @@ class TPQueue {
         }
 
         QueueNode* curr = front;
-        while (curr->link != nullptr &&
-            curr->link->item.prior <= elem.prior) {
+        while (curr->link != nullptr && curr->link->item.prior >= elem.prior) {
             curr = curr->link;
         }
 
