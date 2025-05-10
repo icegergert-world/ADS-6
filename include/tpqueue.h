@@ -28,7 +28,7 @@ class TPQueue {
         }
     }
 
-    void enqueue(const T& elem) {
+    void push(const T& elem) {
         auto* newElem = new QueueNode(elem);
 
         if (front == nullptr || elem.prior > front->item.prior) {
@@ -47,7 +47,7 @@ class TPQueue {
         curr->link = newElem;
     }
 
-    T dequeue() {
+    T pop() {
         if (isEmpty()) {
             throw std::runtime_error("Queue is empty");
         }
