@@ -1,10 +1,11 @@
 // Copyright 2022 NNTU-CS
 #ifndef INCLUDE_TPQUEUE_H_
 #define INCLUDE_TPQUEUE_H_
+#include <stdexcept>
 
 template<typename T>
 class TPQueue {
-private:
+ private:
     struct QueueNode {
         TPQueue item;
         QueueNode* link;
@@ -15,7 +16,7 @@ private:
 
     QueueNode* front;
 
-public:
+ public:
     PriorityQueue()
         : front(nullptr) {}
 
@@ -64,8 +65,8 @@ public:
 };
 
 struct SYM {
-  char ch;
-  int prior;
+    char ch;
+    int prior;
 };
 
 #endif  // INCLUDE_TPQUEUE_H_
